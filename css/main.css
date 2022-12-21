@@ -3,11 +3,12 @@
 }
 
 body {
-    margin: 2em;
+    margin: 0;
     font-family: serif;
     
 }
 
 h1 {
-    color: green;
+    color: rgb(116, 116, 139);
 }
+
