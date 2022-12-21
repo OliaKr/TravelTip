@@ -3,8 +3,11 @@
 }
 
 body {
-    margin: 0;
+    margin: 2em;
     font-family: serif;
     
 }
 
+h1 {
+    color: green;
+}
