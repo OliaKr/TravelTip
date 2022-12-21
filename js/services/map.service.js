@@ -22,16 +22,16 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             })
             console.log('Map!', gMap)
 
-            var locContent = 'Click the map to get Lat/Lng!'
+            // var locContent = 'Click the map to get Lat/Lng!'
 
-            let infoWindow = new google.maps.infoWindow ({
-                content: locContent,
-                position: myLatLng
-            })
+            // let infoWindow = new google.maps.infoWindow ({
+            //     content: locContent,
+            //     position: myLatLng
+            // // })
 
-            infoWindow.open(gMap)
-            gMap.addlistener('click',(mapsMouseEvent) => {
-                console.log(mapsMouseEvent.latLng);
+            // infoWindow.open(gMap)
+            gMap.addListener('click',(mapsMouseEvent) => {
+                console.log(mapsMouseEvent.latLng.toJSON().lat);
 
 
             })
