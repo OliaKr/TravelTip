@@ -1,6 +1,11 @@
+
+
 export const locService = {
     getLocs
 }
+
+import {storageService} from './storage.service'
+
 
 
 const locs = [
@@ -9,6 +14,8 @@ const locs = [
 ]
 
 function getLocs() {
+    
+    
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(locs)
