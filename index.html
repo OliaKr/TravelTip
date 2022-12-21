@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>TravelTip</title>
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">TravelTip</h1>
+        <div>
+            <input id=" pac- input" class="controls" type="search" placeholder="Search here"
+                oninput="onSendSearch(value)">
+            <input type="btn input-btn" type="submit" value="GO!">
+            <button class="btn">My Location</button>
+        </div>
+    </header>
+
+    <section class="info-section">
+        <h3><span class="heading">You are at: </span><span class="user-pos"></span></h3>
+        <button class="btn">Copy Location</button>
+    </section>
+
+    <main class="proj-container main-layout">
+
+        <section class="weather-forc">
+            <h3 class="heading">The weather today:</h3>
+        </section>
+
+        <section class="location-table">
+            <h3><span class="heading" >Locations:</span> <span class="locs"></span></h3>
+            <div class="my-saved-locations"></div>
+            
+        </section>
+
+        <section>
+
+            <section class="map">
+                <div id="map" style="width: 100%; height: 400px;"></div>
+            </section>
+    
+        </section>
+
+
+    </main>
+
+
+
+
+
+
+    <!-- <div id="map" style="width: 100%; height: 400px;"></div>
+    <button onclick="onAddMarker()" class="btn-add-marker">Add Marker Speific Location</button>
+    <button onclick="onGetUserPos()" class="btn-user-pos">Get User Position</button>
+    <button onclick="onGetLocs()" class="btn-get-locs">Get Locations</button>
+    <button onclick="onPanTo()" class="btn-pan">Pan Map to Tokyo</button>
+
+   -->
+
+    <script type="module" src="js/app.controller.js"></script>
+</body>
+
+</html>
