@@ -1,5 +1,5 @@
 
-import {storageService} from './storage.service'
+import {storageService} from './storage.service.'
 
 // export const locService = {
 //     getLocs
@@ -12,15 +12,17 @@ export const locService = {
     query,  // List 
 }
 
-const locs = [
+const LOC_KEY = 'locationDB'
+
+const gLocs = [
     { id: _makeId(), name: 'Greatplace', lat: 32.047104, lng: 34.832384, weather, createdAt: Date().now, updatedAt: Date().now },
     { id: _makeId(), name: 'Neveragain', lat: 32.047201, lng: 34.832581, weather, createdAt: Date().now, updatedAt: Date().now },
 ]
 
 
-function query(entityType, delay = 1000) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || locs
-    return new Promise(resolve => setTimeout(() => resolve(entities), delay))
+function query(entityType = LOC_KEY, delay = 1000) {
+    var locs  = JSON.parse(localStorage.getItem(entityType)) || gLocs
+    return new Promise(resolve => setTimeout(() => resolve(locs), delay))
 }
 
 function get(entityType, entityId) {
