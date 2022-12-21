@@ -1,40 +1,35 @@
-// import { storageService } from "./storage.service.js";
+import { storageService } from "./storage.service.js"
 
 export const mapService = {
     initMap,
     addMarker,
-    panTo
+    panTo,
+    search
 }
 
 
 // Var that is used throughout this Module (not global)
+const MAP_KEY = 'mapDB'
 var gMap
 
 function initMap(lat = 32.0749831, lng = 34.9120554) {
     console.log('InitMap')
     return _connectGoogleApi()
         .then(() => {
-            console.log('google available')
+            console.log('google available from maps')
             gMap = new google.maps.Map(
                 document.querySelector('#map'), {
                 center: { lat, lng },
                 zoom: 15
             })
             console.log('Map!', gMap)
-
-            // gMap.addListener("click", (mapsMouseEvent) => {
-            //     console.log(mapsMouseEvent.latLng.toJSON().lat)
-            //     const { lat, lng } = mapsMouseEvent.latLng.toJSON()
-            //     addMarker({lat,lng})
-            // })
-
             gMap.addListener("click", (mapsMouseEvent) => {
                 const { lat, lng } = mapsMouseEvent.latLng.toJSON()
-                onAddLoc()
-                // addMarker({lat,lng})
+                // onAddLoc()
+                addMarker({lat,lng})
             })
+            return gMap
         })
-
 }
 
 function addMarker(loc) {
@@ -49,8 +44,8 @@ function addMarker(loc) {
 function panTo(lat, lng) {
     var laLatLng = new google.maps.LatLng(lat, lng)
     gMap.panTo(laLatLng)
+    addMarker({ lat, lng })
 }
-
 
 function _connectGoogleApi() {
     if (window.google) return Promise.resolve()
@@ -65,4 +60,10 @@ function _connectGoogleApi() {
         elGoogleApi.onerror = () => reject('Google script failed to load')
     })
 }
+function search(address) {
+    console.log('in')
+    const API_KEY = 'AIzaSyDnFXVkZNr_UUI6PDoFyiFZJTth_dpSAOc' //TODO: Enter your API Key
+    axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${API_KEY}`)
+        .then(console.log())
 
+}
