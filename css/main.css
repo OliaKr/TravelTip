@@ -5,14 +5,9 @@
 body {
     margin: 0;
     font-family: serif;
-    
 }
 
-h1 {
-    color: rgb(5, 5, 203);
-}
-
-p{
-    color: gree;
+main {
+    display: flex;
 }
 
