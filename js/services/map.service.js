@@ -28,16 +28,10 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             //     addMarker({lat,lng})
             // })
 
-            let infoWindow = new google.maps.infoWindow ({
-                content: locContent,
-                position: myLatLng
-            })
-
-            infoWindow.open(gMap)
-            gMap.addlistener('click',(mapsMouseEvent) => {
-                console.log(mapsMouseEvent.latLng);
-
-
+            gMap.addListener("click", (mapsMouseEvent) => {
+                const { lat, lng } = mapsMouseEvent.latLng.toJSON()
+                onAddLoc()
+                // addMarker({lat,lng})
             })
         })
 
