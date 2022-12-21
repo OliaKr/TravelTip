@@ -1,4 +1,4 @@
-// import { storageService } from "./storage.service";
+// import { storageService } from "./storage.service.js";
 
 export const mapService = {
     initMap,
@@ -22,17 +22,19 @@ function initMap(lat = 32.0749831, lng = 34.9120554) {
             })
             console.log('Map!', gMap)
 
-            // var locContent = 'Click the map to get Lat/Lng!'
-
-            // let infoWindow = new google.maps.infoWindow ({
-            //     content: locContent,
-            //     position: myLatLng
+            // gMap.addListener("click", (mapsMouseEvent) => {
+            //     console.log(mapsMouseEvent.latLng.toJSON().lat)
+            //     const { lat, lng } = mapsMouseEvent.latLng.toJSON()
+            //     addMarker({lat,lng})
             // })
-          
-            
 
+            gMap.addListener("click", (mapsMouseEvent) => {
+                const { lat, lng } = mapsMouseEvent.latLng.toJSON()
+                onAddLoc()
+                // addMarker({lat,lng})
+            })
         })
-        
+
 }
 
 function addMarker(loc) {
